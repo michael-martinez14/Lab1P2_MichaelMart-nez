@@ -89,29 +89,34 @@ public class Lab1P2_MichaelMartinez {
                     //System.out.println(edadEspecifica);
                     boolean validacionCorreo=correoValidacion(correo);
                     boolean validacioncontraseña=contraseñaValidacion(contraseña);
+                    boolean agregar=true;
                     
                     if (añoEdad<13) {
                         System.out.println("El usuario no se pudo agregar por que no tiene la edad suficiente");
-                    }
-                    else {
+                        agregar=false;
+                    }else {
                         if (validacionCorreo == false) {
                             System.out.println("El correo contiene caracteres incorrectos");
+                            agregar=false;
                         } else {
                             if (validacioncontraseña == false) {
                                 System.out.println("La contraseña tiene caracteres incorrectos o insuficientes");
+                                agregar=false;
                             } else {
                                 for (int i = 0; i < listaUsuarios.size(); i++) {
                                     if (correo.equalsIgnoreCase(listaUsuarios.get(i).correo)) {
                                         System.out.println("El correo ya existe");
-                                    } else {
-                                        System.out.println("Usuario agregado con éxito");
-                                        Usuario nuevoUsuario = new Usuario(nombre, apellido, edadEspecifica, correo, contraseña);
-                                        listaUsuarios.add(nuevoUsuario);
-                                    }
+                                        agregar=false;
+                                    } 
                                 }
 
                             }
                         }
+                    }
+                    if (agregar) {
+                        System.out.println("Usuario agregado con éxito");
+                        Usuario nuevoUsuario = new Usuario(nombre, apellido, edadEspecifica, correo, contraseña);
+                        listaUsuarios.add(nuevoUsuario);
                     }
                     
                     //comprobación correo electrónico
@@ -121,7 +126,6 @@ public class Lab1P2_MichaelMartinez {
                     for (int i = 0; i < listaUsuarios.size(); i++) {
                         System.out.println(i+" ) "+listaUsuarios.get(i));
                     }
-                    
                     
                     break;
                 case 3:
@@ -144,7 +148,7 @@ public class Lab1P2_MichaelMartinez {
     }
     
     public static boolean contraseñaValidacion(String contraseña){
-        String regex = "^(?=.[a-z])(?=.[A-Z])(?=.*d)(?=.[!\\?<>$%]).{8,}$";
+        String regex = "^[a-zA-Z0-9._%&$+-?<>!]{8,}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(contraseña);
         return matcher.matches();
