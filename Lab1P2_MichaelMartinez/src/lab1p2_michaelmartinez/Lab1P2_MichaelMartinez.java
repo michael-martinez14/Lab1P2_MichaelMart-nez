@@ -129,6 +129,46 @@ public class Lab1P2_MichaelMartinez {
                     
                     break;
                 case 3:
+                    for (int i = 0; i < listaUsuarios.size(); i++) {
+                        String [] token2=listaUsuarios.get(i).correo.split("@");
+                        if (token2[1].equalsIgnoreCase("gmail.com")) {
+                            System.out.println(i+" ) "+listaUsuarios.get(i));
+                        }
+                    }
+                    
+                    for (int i = 0; i < listaUsuarios.size(); i++) {
+                        String [] token2=listaUsuarios.get(i).correo.split("@");
+                        if (token2[1].equalsIgnoreCase("outlook.com")) {
+                            System.out.println(i+" ) "+listaUsuarios.get(i));
+                        }
+                    }
+                    
+                    for (int i = 0; i < listaUsuarios.size(); i++) {
+                        String [] token2=listaUsuarios.get(i).correo.split("@");
+                        if (token2[1].equalsIgnoreCase("yahoo.com")) {
+                            System.out.println(i+" ) "+listaUsuarios.get(i));
+                        }
+                    }
+                    
+                    for (int i = 0; i < listaUsuarios.size(); i++) {
+                        String [] token2=listaUsuarios.get(i).correo.split("@");
+                        if (token2[1].equalsIgnoreCase("icloud.com")) {
+                            System.out.println(i+" ) "+listaUsuarios.get(i));
+                        }
+                    }
+                    
+                    for (int i = 0; i < listaUsuarios.size(); i++) {
+                        String [] token2=listaUsuarios.get(i).correo.split("@");
+                        if (token2[1].equalsIgnoreCase("protonmail.com")) {
+                            System.out.println(i+" ) "+listaUsuarios.get(i));
+                        }
+                    }
+                    for (int i = 0; i < listaUsuarios.size(); i++) {
+                        String [] token2=listaUsuarios.get(i).correo.split("@");
+                        if (token2[1].equalsIgnoreCase("fastmail.com")) {
+                            System.out.println(i+" ) "+listaUsuarios.get(i));
+                        }
+                    }
                     
                     break;
                 case 4:
