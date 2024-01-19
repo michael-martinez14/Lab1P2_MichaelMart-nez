@@ -40,6 +40,10 @@ public class Lab1P2_MichaelMartinez {
                     String apellido=entrada.next();
                     System.out.print("Ingrese la fecha de nacimiento del usuario (YYYY/MM/dd): ");
                     String fecha= entrada.next();
+                    String [] token=fecha.split("/");
+                    int año= Integer.parseInt(token[0]);
+                    int mes=Integer.parseInt(token[1]);
+                    int dia=Integer.parseInt(token[2]);
                     SimpleDateFormat fechaConvertida=new SimpleDateFormat(fecha);
                     System.out.print("Ingrese el correo electrónico del usuario: ");
                     String correo=entrada.next();
@@ -47,11 +51,46 @@ public class Lab1P2_MichaelMartinez {
                     String contraseña=entrada.next();
                     Usuario nuevoUsuario= new Usuario(nombre,apellido,fechaConvertida,correo,contraseña);
                     listaUsuarios.add(nuevoUsuario);
+                    System.out.println(año+" "+ mes+" "+dia);
                     
+                    //Para calcular la edad del usuario
+                    Date hoy=new Date();
+                    SimpleDateFormat fechaSimple=new SimpleDateFormat("YYYY/MM/dd");
+                    String fechaHoy=fechaSimple.format(hoy);
+                    String [] tokenHoy=fechaHoy.split("/");
+                    int añoActual= Integer.parseInt(tokenHoy[0]);
+                    int mesActual=Integer.parseInt(tokenHoy[1]);
+                    int diaActual=Integer.parseInt(tokenHoy[2]);
+                    System.out.println(añoActual+" "+ mesActual+" "+diaActual);
+                    
+                    int añoEdad=0;
+                    int mesEdad=0;
+                    int diaEdad=0;
+                    if (mesActual<mes && diaActual>dia) {
+                        añoEdad=añoActual-año-1;
+                        mesEdad=(12-mes)+mesActual;
+                        diaEdad=diaActual-dia;
+                    }else if (mesActual<mes && diaActual<dia) {
+                        añoEdad=añoActual-año-1;
+                        mesEdad=(12-mes)+mesActual-1;
+                        diaEdad=(31-dia)+diaActual;
+                    }else if(mesActual>mes && diaActual<dia) {
+                        añoEdad=añoActual-año;
+                        mesEdad=(12-mesActual)+mes+1;
+                        diaEdad=(31-dia)+diaActual;
+                    }else{
+                        añoEdad=añoActual-año;
+                        mesEdad=mesActual-mes;
+                        diaEdad=diaActual-dia;
+                    }
+                    System.out.println(añoEdad+" "+ mesEdad+" "+diaEdad);
                     break;
                 case 2:
-                    Date fechaActual=new Date();
-                    System.out.println(fechaActual);
+                    
+                    for (int i = 0; i < listaUsuarios.size(); i++) {
+                        SimpleDateFormat fechaUsuarios=listaUsuarios.get(i).getFecha();
+                        
+                    }
                     
                     break;
                 case 3:
