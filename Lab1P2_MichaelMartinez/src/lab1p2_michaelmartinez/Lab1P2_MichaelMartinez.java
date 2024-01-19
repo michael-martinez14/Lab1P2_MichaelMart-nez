@@ -129,6 +129,7 @@ public class Lab1P2_MichaelMartinez {
                     
                     break;
                 case 3:
+                    System.out.println("----USUARIOS POR DOMINIO----");
                     for (int i = 0; i < listaUsuarios.size(); i++) {
                         String [] token2=listaUsuarios.get(i).correo.split("@");
                         if (token2[1].equalsIgnoreCase("gmail.com")) {
