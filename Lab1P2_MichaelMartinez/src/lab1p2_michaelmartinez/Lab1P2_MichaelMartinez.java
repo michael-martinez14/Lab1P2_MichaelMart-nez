@@ -23,6 +23,7 @@ public class Lab1P2_MichaelMartinez {
         
         Scanner entrada=new Scanner(System.in);
         ArrayList<Usuario> listaUsuarios=new ArrayList();
+        
         boolean bandera=true;
         int opcionMenu=0;
         while (bandera) {
@@ -49,9 +50,8 @@ public class Lab1P2_MichaelMartinez {
                     String correo=entrada.next();
                     System.out.print("Ingrese la contraseña del usuario: ");
                     String contraseña=entrada.next();
-                    Usuario nuevoUsuario= new Usuario(nombre,apellido,fechaConvertida,correo,contraseña);
-                    listaUsuarios.add(nuevoUsuario);
-                    System.out.println(año+" "+ mes+" "+dia);
+                    
+                    //System.out.println(año+" "+ mes+" "+dia);
                     
                     //Para calcular la edad del usuario
                     Date hoy=new Date();
@@ -61,7 +61,7 @@ public class Lab1P2_MichaelMartinez {
                     int añoActual= Integer.parseInt(tokenHoy[0]);
                     int mesActual=Integer.parseInt(tokenHoy[1]);
                     int diaActual=Integer.parseInt(tokenHoy[2]);
-                    System.out.println(añoActual+" "+ mesActual+" "+diaActual);
+                    //System.out.println(añoActual+" "+ mesActual+" "+diaActual);
                     
                     int añoEdad=0;
                     int mesEdad=0;
@@ -83,12 +83,20 @@ public class Lab1P2_MichaelMartinez {
                         mesEdad=mesActual-mes;
                         diaEdad=diaActual-dia;
                     }
-                    System.out.println(añoEdad+" "+ mesEdad+" "+diaEdad);
+                    String edadEspecifica="Años: "+añoEdad+" Meses: "+ mesEdad+" Dias: "+diaEdad;
+                    System.out.println(edadEspecifica);
+                    if (añoEdad<13) {
+                        System.out.println("El usuario no se pudo agregar por tener menos de 13 años");
+                    }else{
+                        System.out.println("Usuario agregado con éxito");
+                        Usuario nuevoUsuario= new Usuario(nombre,apellido,edadEspecifica,correo,contraseña);
+                        listaUsuarios.add(nuevoUsuario);
+                    }
                     break;
                 case 2:
-                    
+                    System.out.println("----USUARIOS----");
                     for (int i = 0; i < listaUsuarios.size(); i++) {
-                        SimpleDateFormat fechaUsuarios=listaUsuarios.get(i).getFecha();
+                        System.out.println(i+" ) "+listaUsuarios.get(i));
                         
                     }
                     

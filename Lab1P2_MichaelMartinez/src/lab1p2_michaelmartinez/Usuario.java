@@ -14,11 +14,11 @@ import java.util.Date;
 public class Usuario {
     String nombre;
     String Apellido;
-    SimpleDateFormat fecha;
+    String fecha;
     String correo;
     String contraseña;
 
-    public Usuario(String nombre, String Apellido, SimpleDateFormat fecha, String correo, String contraseña) {
+    public Usuario(String nombre, String Apellido, String fecha, String correo, String contraseña) {
         this.nombre = nombre;
         this.Apellido = Apellido;
         this.fecha = fecha;
@@ -44,11 +44,11 @@ public class Usuario {
         this.Apellido = Apellido;
     }
 
-    public SimpleDateFormat getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(SimpleDateFormat fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
@@ -70,7 +70,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Nombre: " + nombre + " | Apellido: " + Apellido + " | Fecha:" + fecha + " | Correo:" + correo + " | Contraseña: " + contraseña;
+        return "Nombre: " + nombre + " | Apellido: " + Apellido + " | Edad(Años,meses, dias): " + fecha + " | Correo:" + correo + " | Contraseña: " + contraseña;
     }
     
     
