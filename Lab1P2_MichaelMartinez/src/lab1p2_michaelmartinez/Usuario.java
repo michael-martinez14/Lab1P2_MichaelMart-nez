@@ -70,7 +70,7 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Nombre: " + nombre + " | Apellido: " + Apellido + " | Edad(Años,meses, dias): " + fecha + " | Correo:" + correo + " | Contraseña: " + contraseña;
+        return "Nombre: " + nombre + " | Apellido: " + Apellido + " | Edad: " + fecha + " | Correo:" + correo + " | Contraseña: " + contraseña;
     }
     
     
